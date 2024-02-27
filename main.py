@@ -576,9 +576,11 @@ def simulateAndPlotMixedPolicy(trial_number, safe_policy, cheap_policy, p_safe):
 # Main function
 if __name__ == '__main__':
     np.random.seed(10)
+    plt.rcParams['pdf.fonttype'] = 42       # Needed to prevent figures from containing Type 3 fonts
+    plt.rcParams['ps.fonttype'] = 42        # Needed to prevent figures from containing Type 3 fonts
 
     GENERATENEW = False     # True: Regenerate dynamics and resolve LPs; False: Load from safe-files
-    OBJECTIVE_TYPE = 'I'    # We consider three different settings: Invariance "I", Reachability "R", Reach-Avoid "RA"
+    OBJECTIVE_TYPE = 'RA'    # We consider three different settings: Invariance "I", Reachability "R", Reach-Avoid "RA"
 
     # N: Time-Horizon; alpha: Safety Probability
     if OBJECTIVE_TYPE=='I': # Load the Invariance Example
